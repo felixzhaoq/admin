@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zq.dao.SysUserMapper">
+
+  <resultMap id="resultSysUser" type="com.zq.entity.SysUser">
+      <result property="id" column="id" jdbcType="VARCHAR"/>
+      <result property="username" column="username" jdbcType="VARCHAR"/>
+      <result property="realname" column="realname" jdbcType="VARCHAR"/>
+  </resultMap>
+	
+  <sql id="insertSqlSysUser">
+    id,username,realname
+  </sql>
+  <sql id="selectSqlSysUser">
+    id,username,realname
+  </sql>
+  <sql id="variableSqlSysUser">
+    #{id,jdbcType=VARCHAR},#{username,jdbcType=VARCHAR},#{realname,jdbcType=VARCHAR}
+  </sql>
+  <insert id="insert" parameterType="com.zq.entity.SysUser">
+       INSERT INTO p2p_user ( <include refid="insertSqlSysUser"/>
+       ) VALUES ( <include refid="variableSqlSysUser"/>)
+   </insert>
+  <update id="update" parameterType="com.zq.entity.SysUser">
+       UPDATE sys_user 
+       <trim prefix="SET" prefixOverrides=",">
+	     <if test="username != null and username != ''">,username=#{username}</if>
+	     <if test="password != null and password != ''">,password=#{password}</if>
+	     <if test="realname != null and realname != ''">,realname=#{realname}</if>
+	    </trim>
+      WHERE id = #{id}
+   </update>
+</mapper>

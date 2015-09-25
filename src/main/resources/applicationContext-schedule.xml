@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd">
+
+	<description>定时器异步配置</description>
+<!-- 
+	<bean id="p2pSchedulerManager" class="com.zbxsoft.p2p.manager.P2pSchedulerManager" lazy-init="false"></bean>
+	<task:executor id="myExecutor" pool-size="10" />
+	<task:annotation-driven executor="myExecutor"/> -->
+	
+	<!-- 获得spring容器 -->
+	<bean id="SpringContextHolder" class="com.zq.sys.SpringContextHolder" />
+	
+	<!-- 
+	<task:scheduled-tasks>     
+    	<task:scheduled ref="p2pSchedulerManager" method="compStart" cron="0 49 17 * * ?"/>     
+	</task:scheduled-tasks>
+	<task:scheduled-tasks>     
+    	<task:scheduled ref="p2pSchedulerManager" method="compareToBank" cron="0 0/30 * * * ?"/>     
+	</task:scheduled-tasks>
+	
+	<task:scheduled-tasks>     
+    	<task:scheduled ref="p2pSchedulerManager" method="pilianDaifuScheduler" cron="0 0/5 7-21 * * ?"/>     
+	</task:scheduled-tasks>
+	 -->
+	
+	
+	 
+</beans>
